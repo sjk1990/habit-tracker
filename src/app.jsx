@@ -13,18 +13,25 @@ class App extends Component {
   };
 
   handleIncrement = (habit) => {
-    const habits = [...this.state.habits];
-    const index = habits.indexOf(habit);
-    habits[index].count++;
+    //use for purecomponent
+    const habits = this.state.habits.map((item) => {
+      if (habit.id === item.id) {
+        return { ...habit, count: habit.count + 1 };
+      }
+      return item;
+    });
     this.setState({ habits: habits });
-    //this.setState({ habits })와 동일
   };
 
   handleDecrement = (habit) => {
-    const habits = [...this.state.habits];
-    const index = habits.indexOf(habit);
-    const count = habits[index].count - 1;
-    habits[index].count = count < 0 ? 0 : count;
+    //use for purecomponent
+    const habits = this.state.habits.map((item) => {
+      if (habit.id === item.id) {
+        const count = habit.count - 1;
+        return { ...habit, count: count > 0 ? count : 0 };
+      }
+      return item;
+    });
     this.setState({ habits: habits });
   };
 

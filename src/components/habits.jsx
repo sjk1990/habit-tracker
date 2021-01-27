@@ -5,7 +5,7 @@ import Habit from "./habit";
 class Habits extends Component {
   render() {
     return (
-      <>
+      <div className="habits">
         <HabbitAddForm onAdd={this.props.onAdd} />
         <ul>
           {this.props.habits.map((habit) => (
@@ -21,7 +21,7 @@ class Habits extends Component {
         <button className="habits-reset" onClick={this.props.onReset}>
           Reset All
         </button>
-      </>
+      </div>
     );
   }
 }
