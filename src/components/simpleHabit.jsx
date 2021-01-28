@@ -10,7 +10,7 @@ const SimpleHabit = () => {
   //useCallback --> 재호출 방지 (사용시 주의필요)
   const handleIncrement = useCallback(() => {
     setCount(count + 1);
-  });
+  }, []);
 
   //componentDidMount + componentDidUpdate
   //마지막 옵션으로 해당 요소가 변경될때만 호출, 빈배열-->mount에만 호출됨
